@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Application">
+      <UniqueIdentifier>{36d32396-266d-4bd9-9c22-32bbf5db61b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Application">
+      <UniqueIdentifier>{e5a5b356-b737-48f2-a3ec-fc5a4e39e037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{be75f60f-a856-41d0-913a-ad1e1158ce5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{9e74ee85-182d-47f1-99a3-98b84062f8ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cameras">
+      <UniqueIdentifier>{7e43cf3b-1f40-48d1-9ad2-2079fa24b33d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cameras">
+      <UniqueIdentifier>{8bfc1d39-528c-4680-9135-27498767d92d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{3c26c1a3-8e43-42c6-9149-3cb272003c5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{b9d0609e-2f9b-4bc6-8930-2638dffc8f52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{f1be8911-e8d9-425b-bc9c-a4b368cc36c9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainApplication.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Gizmos.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\glCore\gl_core_4_5.c">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="FlyCamera.cpp">
+      <Filter>Source Files\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Input.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AIE_Gizmos\OBJMesh.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Texture.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Shader.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AIE_Gizmos\RenderTarget.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainApplication.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Gizmos.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\glCore\gl_core_4_5.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyCamera.h">
+      <Filter>Header Files\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Input.h">
+      <Filter>Header Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\OBJMesh.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\tiny_obj_loader.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Texture.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\stb_image.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Shader.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="APS_Core.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\RenderTarget.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="APS_Error_Codes.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\shaders\combined_shader.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\combined_shader.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\phong.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\phong.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\simple.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\simple.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\textured.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\textured.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\main.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\main.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\post.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="..\bin\shaders\post.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ObscureDev.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

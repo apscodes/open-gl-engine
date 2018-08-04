@@ -1,0 +1,9 @@
+newmtl StingrayPBS1SG
+illum 2
+Ka 0.010000 0.010000 0.010000
+Kd 1.000000 1.000000 1.000000
+Ks 0.250000 0.250000 0.250000
+Ns 0.100000
+map_Kd Gargoyle_Colour.tga
+map_Ks Gargoyle_Roughness.tga
+bump Gargoyle_Normal.tga

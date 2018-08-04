@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{810EEB31-8A55-44AC-A45C-2498FF9DC4C5}</ProjectGuid>
+    <RootNamespace>ObscureDev</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\glm\;</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\glm\;$(SolutionDir)glfw3\include\GLFW\;$(SolutionDir)dependencies\AIE_Gizmos\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);GLM_ENABLE_EXPERIMENTAL;</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\glm\;$(SolutionDir)glfw3\include\GLFW\;$(SolutionDir)dependencies\AIE_Gizmos\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);GLM_ENABLE_EXPERIMENTAL;</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Gizmos.cpp" />
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Input.cpp" />
+    <ClCompile Include="..\dependencies\AIE_Gizmos\OBJMesh.cpp" />
+    <ClCompile Include="..\dependencies\AIE_Gizmos\RenderTarget.cpp" />
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Shader.cpp" />
+    <ClCompile Include="..\dependencies\AIE_Gizmos\Texture.cpp" />
+    <ClCompile Include="..\dependencies\glCore\gl_core_4_5.c" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="FlyCamera.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainApplication.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Gizmos.h" />
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Input.h" />
+    <ClInclude Include="..\dependencies\AIE_Gizmos\OBJMesh.h" />
+    <ClInclude Include="..\dependencies\AIE_Gizmos\RenderTarget.h" />
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Shader.h" />
+    <ClInclude Include="..\dependencies\AIE_Gizmos\stb_image.h" />
+    <ClInclude Include="..\dependencies\AIE_Gizmos\Texture.h" />
+    <ClInclude Include="..\dependencies\AIE_Gizmos\tiny_obj_loader.h" />
+    <ClInclude Include="..\dependencies\glCore\gl_core_4_5.h" />
+    <ClInclude Include="APS_Core.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="FlyCamera.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="APS_Error_Codes.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="MainApplication.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\shaders\combined_shader.frag" />
+    <None Include="..\bin\shaders\combined_shader.vert" />
+    <None Include="..\bin\shaders\main.frag" />
+    <None Include="..\bin\shaders\main.vert" />
+    <None Include="..\bin\shaders\phong.frag" />
+    <None Include="..\bin\shaders\phong.vert" />
+    <None Include="..\bin\shaders\post.frag" />
+    <None Include="..\bin\shaders\post.vert" />
+    <None Include="..\bin\shaders\simple.frag" />
+    <None Include="..\bin\shaders\simple.vert" />
+    <None Include="..\bin\shaders\textured.frag" />
+    <None Include="..\bin\shaders\textured.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ObscureDev.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,9 @@
+newmtl Leica_X1_TriangulatedSG
+illum 2
+Ka 0.010000 0.010000 0.010000
+Kd 1.000000 1.000000 1.000000
+Ks 0.250000 0.250000 0.250000
+Ns 0.100000
+map_Kd lambert1_Base_Color.png
+map_Ks lambert1_Roughness.png
+bump lambert1_Normal_DirectX.png
