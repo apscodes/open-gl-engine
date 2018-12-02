@@ -111,6 +111,7 @@ MainApplication::~MainApplication()
 		}
 	}
 
+
 	////*! Deletion check to make sure it exists before it deletes
 	//if (m_light != nullptr)
 	//	delete m_light;
@@ -193,61 +194,25 @@ int MainApplication::startup()
 	#pragma region Light Information
 
 		//*! Light Data
-		m_light = new Light({ 1, 1, 0 }, { 0.8f, 0.0f, 0.8f }, { 0.75f, 0.75f, 0.75f }, { 0.25f, 0.25f, 0.25f });
+		m_light = new Light({ 0, 0, 0 }, { 0.8f, 0.8f, 0.8f }, { 0.5f, 0.5f, 0.5f }, { 0.5f, 0.5f, 0.5f });
+		m_lights.push_back(m_light);
+	 
+
+		m_light = new Light({ 0, 0, 0 }, { 1.0f, 0.4f, 0.0f }, { 1.0f, 0.5f, 0.0f }, { 0.4f, 0.05f, 0.0f });
 		m_lights.push_back(m_light);
  
-		m_light = new Light({ 1, 0, 1 }, { 0.0f, 0.8f, 0.0f }, { 0.75f, 0.75f, 0.75f }, { 0.25f, 0.25f, 0.25f });
-		m_lights.push_back(m_light);
 
 	#pragma endregion
 	
 
 	#pragma region Game Object Loading
-
-		//*! New Object
-		m_game_object_empty = new GameObject(glm::vec4(0, 0.5f, 0, 1), "../bin/soulspear/soulspear.obj");
-
-		//*! Pass the lighting data across to the renderer
-		m_game_object_empty->set_light_data(m_lights);
-
-		//*! Add in the game object into the vector of game objects
-		m_game_object.push_back(m_game_object_empty);
  
-
-
-
-		//*! New Object
-		m_game_object_empty = new GameObject(glm::vec4(4.5f, 2.5f, 0, 1), "../bin/Camera/leica.obj");
-
-		//*! Rotational Offset of the object
-		glm::mat4 rot(1);
-		rot = glm::rotate(45.0f, glm::vec3(0, 1, 0));
-
-		m_game_object_empty->set_local_transform(rot * m_game_object_empty->get_local_transform());
-
-		//*! Pass the lighting data across to the renderer
-		m_game_object_empty->set_light_data(m_lights);
-
-		//*! Add in the game object into the vector of game objects
-		m_game_object.push_back(m_game_object_empty);
-		
-		
-
-		//*! New Object
-		m_game_object_empty = new GameObject(glm::vec4(-10, 10.0f, 0, 1), "../bin/Gargoyle/Gargoyle.obj");
- 
-		//*! Pass the lighting data across to the renderer
-		m_game_object_empty->set_light_data(m_lights);
-
-		//*! New Scale
-		m_game_object_empty->set_scale(glm::vec3(0.1f));
-
-		//*! Add in the game object into the vector of game objects
-		m_game_object.push_back(m_game_object_empty);
+		//*! Create a hex grid by row and col 
+		create_hex_grid(12, 12, 0);
 
 	#pragma endregion
 
-
+	//*! Quad mesh stuck on the camera
 	#pragma region Post Quad Mesh
 	
 		//*! New Mesh Object
@@ -268,6 +233,72 @@ int MainApplication::startup()
 
 
 	return 0;
+}
+
+//*! Creates the hex grid with the number of rows and cols
+void MainApplication::create_hex_grid(int row_max, int col_max, float hieght)
+{
+	for (int row = 0; row < row_max; row++)
+	{
+		for (int col = 0; col < col_max; col++)
+		{
+			//*! New Object
+			m_game_object_empty = new GameObject(glm::vec4(0, hieght, 0, 1), "../bin/Hex_Tile/Hex.obj");
+
+			float t_x_set = row * x_odd_set;
+
+			if (col % 2 == 1)
+			{
+				t_x_set += x_odd_set / 2;
+			}
+
+			//*! Position
+			m_game_object_empty->set_position(glm::vec4(-(col * z_set) - world_offset, hieght, -t_x_set - world_offset, 1));
+
+
+			//*! Scale up
+			m_game_object_empty->set_scale(glm::vec3(0.5f * scale_factor, 5.0f, 0.5f * scale_factor));
+
+
+			//*! Pass the lighting data across to the renderer
+			m_game_object_empty->set_light_data(m_lights);
+
+ 
+			//*! Add in the game object into the vector of game objects
+			m_game_object.push_back(m_game_object_empty);
+
+
+
+			//*! Random chance between 0-10
+			if (std::rand() % 10 == 0)
+			{
+				//*! New Object
+				m_game_object_empty = new GameObject(glm::vec4(-world_offset, 1, -world_offset, 1), "../bin/Cube/Cube.obj");
+
+				//*! P CUBE
+				m_game_object_empty->set_p_cube(true);
+
+				//*! Position
+				m_game_object_empty->set_position(glm::vec4(-(col * z_set) - world_offset, hieght + 2, -t_x_set - world_offset, 1));
+				
+				//*! Scale down
+				m_game_object_empty->set_scale(glm::vec3(scale_factor * 0.25f, scale_factor * 0.25f, scale_factor * 0.25f));
+
+				//*! Random Rotation
+				glm::mat4 rot(1);
+				rot = glm::rotate((float)std::rand() / 2, glm::vec3(m_game_object_empty->get_local_transform()[3]));
+				m_game_object_empty->set_local_transform(rot * m_game_object_empty->get_local_transform());
+
+				//*! Pass the lighting data across to the renderer
+				m_game_object_empty->set_light_data(m_lights);
+
+				//*! Add in the game object into the vector of game objects
+				m_game_object.push_back(m_game_object_empty);
+			}
+
+		}
+	}
+
 }
 
 //*! Clean up of aie gizmos and glfw
@@ -312,19 +343,17 @@ void MainApplication::draw()
 	//*! Clearubf the buffer (old render data) - Colour and depth checks
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
- 
+
 	 
 	//*! Get the current delta time as a double, but cast it as a float for the glm::rotate
 	m_delta_time = get_delta_time();
 
 	//*! Move light over time
-	m_lights[0]->set_direction(glm::normalize(glm::vec3(glm::cos((float)glfwGetTime() * 2.0f), 0.0f, glm::sin((float)glfwGetTime() * 2.0f))));
+	m_lights[1]->set_direction(glm::normalize(glm::vec3(glm::cos((float)glfwGetTime() * 2.0f), 0.0f, glm::sin((float)glfwGetTime() * 2.0f))));
 
 	#pragma region GameObject Rendering
  
- 	//*! Bind the shader m_game_object_soulspear
-	//m_game_object_soulspear->get_combined_shader().bind();
-
+ 
 	
 	//*! What camera am I using
 	if (m_fly_camera != nullptr)
@@ -335,40 +364,23 @@ void MainApplication::draw()
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			
-
-		#pragma region Grid Rendering
-
-			//*! Clear the gizmos
-			//aie::Gizmos::clear();
-
-			//*! Makes an identity matrix
-			aie::Gizmos::addTransform(glm::mat4(1));
-
-			//*! Colour of white
-			glm::vec4 white(1);
-			//*! Colout of black
-			glm::vec4 black(0.5f, 0.5f, 0.5f, 1);
-
-			//*! Iterate over the following to create a grid pattern
-			for (int i = 0; i < 21; ++i)
-			{
-				aie::Gizmos::addLine(glm::vec3(-10 + i, 0, 10), glm::vec3(-10 + i, 0, -10), i == 10 ? white : black);
-				aie::Gizmos::addLine(glm::vec3(10, 0, -10 + i), glm::vec3(-10, 0, -10 + i), i == 10 ? white : black);
-			}
-			
-		#pragma endregion
-
-
+ 
 		//*! Game Objects
 		for (int index = 0; index < m_game_object.size(); index++)
 		{
-			//*! Spin of gameObject
-			//glm::mat4 rot(1);
-			//rot = glm::rotate((float)m_delta_time / 10, glm::vec3(0, 1, 0));
-			//m_game_object[index]->set_local_transform(rot * m_game_object[index]->get_local_transform());
+			if (m_game_object[index]->get_p_cube_state() == true)
+			{
+				//*! Spin of gameObject 
+				glm::mat4 rot(1);
+				rot = glm::rotate((float)m_delta_time + m_game_object[index]->rot / 1000000, glm::vec3(m_game_object[index]->get_local_transform()[3]));
+				m_game_object[index]->set_local_transform(rot * m_game_object[index]->get_local_transform());
+			}
+
 		
 			//*! Direction between each game object and the camera
-			//m_lights[0]->m_direction = glm::vec3(m_game_object[index]->get_local_transform()[3] - m_static_camera->get_world_transform()[3]);
+			m_lights[0]->set_direction(glm::vec3(m_game_object[index]->get_local_transform()[3] - m_fly_camera->get_world_transform()[3]));
+			
+	 
 			//*! Light Data - Update
 			m_game_object[index]->get_renderer_component()->set_light_data(m_lights);
 			 //*! Camera Data - Update
@@ -397,10 +409,9 @@ void MainApplication::draw()
 		m_quad_shader.bindUniform("post_target", 0);
 
 
-
-		blurOn = (glfwGetMouseButton(m_window, 0) == GLFW_PRESS) ? true : false;
 		
-		if (blurOn)
+		///blurOn = (glfwGetMouseButton(m_window, 0) == GLFW_PRESS) ? true : false;
+		if ((glfwGetMouseButton(m_window, 0) == GLFW_PRESS) ? true : false)
 		{
 			//*! Effecting the blur factor over time.
 			m_quad_shader.bindUniform("blur_factor", glm::vec2(glm::sin((float)glfwGetTime()) * 15.0f, glm::sin((float)glfwGetTime() * 15.0f)));
@@ -413,9 +424,9 @@ void MainApplication::draw()
 
 
 
-		distortOn = (glfwGetMouseButton(m_window, 1) == GLFW_PRESS) ? true : false;
 
-		if (distortOn)
+		///distortOn = (glfwGetMouseButton(m_window, 1) == GLFW_PRESS) ? true : false;
+		if ((glfwGetMouseButton(m_window, 1) == GLFW_PRESS) ? true : false)
 		{
 			//*! Effecting the blur factor over time.
 			m_quad_shader.bindUniform("distort_factor", 15.0f);

@@ -69,12 +69,13 @@ Renderer::~Renderer()
 
 void Renderer::draw()
 {
-
 	//*! Bind the Render target
 	//m_render_target.bind();
 
-	glClearColor(0.45f, 0.45f, 0.45f, 1);
+	glClearColor(0.85f, 0.85f, 0.85f, 1);
 
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
 	//*! Bind the object shader
 	m_shader->bind();
 
@@ -126,7 +127,7 @@ void Renderer::draw()
 	//*! Binding the (expecting glm::mat4) into the shader using the 'ProjectionViewModel'
 	m_shader->bindUniform("ProjectionViewModel", m_pvm);
 	//*! Base Diffuse Colour if no texture
-	m_shader->bindUniform("Kd", glm::vec3(0.6f, 0.75f, 0.85f));
+	m_shader->bindUniform("Kd", glm::vec3(1.0f, 0.0f, 1.0f));
 
 	//*! RenderTarget
 	///m_render_target.get_target(0).bind(0);
@@ -157,8 +158,6 @@ bool Renderer::set_shader(const aie::eShaderStage a_shader_type, const std::stri
 {
 	if (m_shader != nullptr)
 	{
-
-
 		//*! Loading the shader via the file path
 		if (!m_shader->loadShader(a_shader_type, a_file_path.c_str()))
 		{

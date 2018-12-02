@@ -36,12 +36,17 @@ public:
 	
 		//*! Get the global transform matrix
 		glm::mat4 const get_global_transform() { return m_global_matrix; };
+		
+		//*! Get the parent transform matrix
+		glm::mat4 const get_parent_transform() { return m_parent_matrix; };
 
 		//*! Get the local transform matrix
 		glm::mat4 const get_local_transform() { return m_local_matrix; };
 
 		//*! Get the renderer component
 		Renderer* get_renderer_component() { return m_renderer; };
+
+		bool const get_p_cube_state() { return p_cube; };
 
 	#pragma endregion
 
@@ -65,11 +70,14 @@ public:
 		//*! Set Light Data - Wrapper for the Renderer
 		void set_light_data(const std::vector<Light*> a_light_data);
 
+		void set_p_cube(const bool state) { p_cube = state; };
+
 	#pragma endregion
 
 		//*! Object Draw
 		void draw();
 
+	float rot;
 		
 private:
 	
@@ -85,4 +93,7 @@ private:
 	void set_matricies(const glm::mat4& a_local, const glm::mat4& a_global, const glm::mat4& a_parent);
 	//*! Main Default Game Object data
 	void set_defaults();
+
+	bool p_cube = false;
+
 };

@@ -45,7 +45,8 @@ private:
 	double m_delta_mouse_x;
 	double m_delta_mouse_y;
 
-
-
+	//*! Set the camera to look at the centre of the world on the first loop
+	bool once  = false;
+ 
 };
 

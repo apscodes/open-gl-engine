@@ -235,6 +235,11 @@ void GameObject::set_defaults()
 	//*! Set the renderer game object target to this
 	m_renderer->set_target_game_object(this);
 
+	float offset = (float)std::rand();
+	offset / 100000;
+	int minus = (int)offset;
+	offset - minus;
+	rot = offset;
 }
 
 

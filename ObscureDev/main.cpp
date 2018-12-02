@@ -37,11 +37,12 @@ int main()
 	//*! Memory Checker
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	std::cout << "Start of the program." << std::endl;
+	std::cout << "--[\t-START-\t]--" << std::endl;
 
 	//*! MainApplication* main_app = new MainApplication();
 	///*! or	Either one will create an application window
  
+	
 	MainApplication* main_app = new MainApplication(glm::ivec2(1280,720), "Open GL Engine - ObscureDev", nullptr, nullptr);
 
 

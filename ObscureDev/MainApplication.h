@@ -60,6 +60,8 @@ public:
 
 protected:
 
+
+	void create_hex_grid(int row_max, int col_max, float height);
 	//*! User input
 	aie::Input* m_input;
 	
@@ -125,6 +127,17 @@ private:
 
 	bool distortOn;
 	
+	int row = 0;
+	int col = 0;
+
+	float scale_factor = 5.0f;
+	int world_offset = -10;
+	//*! No Gap
+	float x_odd_set = 0.864f * scale_factor;
+	float z_set = 0.750f * scale_factor;
+	//*! Slight Gap
+	//float x_odd_set = 0.88f * scale_factor;
+	//float z_set = 0.766f * scale_factor;
 	///*! std::thread m_render_thread;
  
 };
